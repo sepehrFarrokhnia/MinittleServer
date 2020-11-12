@@ -1,0 +1,6 @@
+{
+    "jwtConfigs": {
+        "jwtSecret" : "#naBeKosLisy",
+        "jwtDuration" : "unlimited"
+    }
+}
