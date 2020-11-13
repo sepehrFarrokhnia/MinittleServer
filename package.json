@@ -1,12 +1,11 @@
 {
-  "name": "loginsecurity",
-  "version": "1.0.0",
+  "name": "minittleserver",
+  "version": "0.0.1",
   "main": "bin/www.js",
   "bin": {
-    "loginsecurity": "www.js"
+    "minittleserver": "www.js"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon bin/www.js"
   },
   "author": "",
