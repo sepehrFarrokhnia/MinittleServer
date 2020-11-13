@@ -11,15 +11,15 @@ module.exports = {
         Users.findOne({ where: { username: username, password: encrypt(password).toString() } })
             .then(rsu => {
                 if (rsu == null) {
-                    res.status(404).json({ 0: 404, 1: "notFound" });
+                    res.status(404).json({ status: 404, error: "notFound" });
                 } else {
                     console.log(`playload : ${rsu}`)
                     let token = jwt.sign({ id: rsu.id, name: rsu.name, username: rsu.username, Role: rsu.Role }, secrets.secrets.loginSecret, { algorithm: 'HS256' });
-                    res.status(200).json({ 0: 200, 1: token });
+                    res.status(200).json({ status: 200, token: token });
                 }
             }).catch(err => {
                 console.log(err)
-                res.status(400).json({ 0: 400, 1: err })
+                res.status(400).json({ status: 400, error: err })
             })
     },
 
@@ -30,7 +30,7 @@ module.exports = {
                 username: username
             }
         }).then(rsu => {
-            res.status(200).json({ 0: 200, name: rsu.name, username: rsu.username, password: rsu.password });
+            res.status(200).json({ status: 200, name: rsu.name, username: rsu.username, password: rsu.password });
         }).catch(err => {
             console.error(err);
         })

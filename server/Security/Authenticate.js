@@ -7,13 +7,13 @@ module.exports = {
             let token = req.headers.auth;
             jwt.verify(token, secrets.secrets.loginSecret, { algorithm: "HS256" }, (err, user) => {
                 if (err) {
-                    res.status(400).send({ 0: 400, 1: "unathorized" });
+                    res.status(400).send({ status: 400, error: "unathorized" });
                 }
                 req.user = user;
                 next();
             })
         } else {
-            res.status(400).send({ 0: 400, 1: "unathorized" });
+            res.status(400).send({ status: 400, error: "unathorized" });
         }
     },
     isAdmin(req, res, next) {
@@ -22,11 +22,11 @@ module.exports = {
             if (role == "admin") {
                 next();
             } else {
-                res.status(403).send({ 0: 403, 1: "unathorized" });
+                res.status(403).send({ status: 403, error: "unathorized" });
             }
 
         } else {
-            res.status(404).send({ 0: 404, 1: "notFound" })
+            res.status(404).send({ status: 404, error: "notFound" })
         }
 
     }

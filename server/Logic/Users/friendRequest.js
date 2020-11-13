@@ -22,15 +22,15 @@ const sendingRequest = (id, friendId) => {
                     } else {
                         sUser.friendRequests += fUser.username + "/" + fUser.id + "-";
                     }
-                    res.status(200).json({ 0: 200 });
+                    res.status(200).json({ status: 200 });
                 }).catch(err => {
                     //second user not found
-                    res.status(400).json({ 0: 400, 1: err });
+                    res.status(400).json({ status: 400, error: err });
                 })
 
         }).catch(err => {
             //first user did not found
-            res.status(400).json({ 0: 400, 1: err });
+            res.status(400).json({ status: 400, error: err });
         });
 }
 
@@ -59,15 +59,15 @@ const acceptingRequest = (id, friendId) => {
                     } else {
                         fUser.friendList += sUser.username + "/" + sUser.id + "-";
                     }
-                    res.status(200).json({ 0: 200 });
+                    res.status(200).json({ status: 200 });
                 }).catch(err => {
                     //second user not found
-                    res.status(400).json({ 0: 400, 1: err });
+                    res.status(400).json({ status: 400, error: err });
                 })
 
         }).catch(err => {
             //first user did not found
-            res.status(400).json({ 0: 400, 1: err });
+            res.status(400).json({ status: 400, error: err });
         });
 }
 

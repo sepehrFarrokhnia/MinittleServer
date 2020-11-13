@@ -32,15 +32,15 @@ module.exports = {
                         }
                     }).then(reu1 => {
                         // everything went well
-                        res.status(200).json({ 0: 200, 1: prebuilUsername, 2: prebuildPassword });
+                        res.status(200).json({ status: 200, username: prebuilUsername, password: prebuildPassword });
                     }).catch(err => {
                         //couldn't update the user
                         console.log(err);
-                        res.status(500).json({ 0: 500, 1: err });
+                        res.status(500).json({ status: 500, error: err });
                     })
             }).catch(err => {
                 console.log(err);
-                res.status(500).json({ 0: 500, 1: err });
+                res.status(500).json({ status: 500, error: err });
             });
 
     }
