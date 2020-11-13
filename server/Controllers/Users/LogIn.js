@@ -14,7 +14,7 @@ module.exports = {
                     res.status(404).json({ 0: 404, 1: "notFound" });
                 } else {
                     console.log(`playload : ${rsu}`)
-                    let token = jwt.sign({ name: rsu.name, username: rsu.username, password: rsu.password, Role: rsu.Role }, secrets.secrets.loginSecret, { algorithm: 'HS256' });
+                    let token = jwt.sign({ id: rsu.id, name: rsu.name, username: rsu.username, Role: rsu.Role }, secrets.secrets.loginSecret, { algorithm: 'HS256' });
                     res.status(200).json({ 0: 200, 1: token });
                 }
             }).catch(err => {

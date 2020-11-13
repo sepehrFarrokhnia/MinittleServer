@@ -1,16 +1,16 @@
 {
   "development": {
-    "username": "postgres",
+    "username": "sepehrnia",
     "password": "sepehrnia",
-    "database": "lobbyLogIn",
+    "database": "minittleServer",
     "host": "127.0.0.1",
     "port":5432,
     "dialect": "postgres"
   },
   "test": {
-    "username": "postgres",
+    "username": "sepehrnia",
     "password": "sepehrnia",
-    "database": "lobbyLogIn",
+    "database": "minittleServer",
     "host": "127.0.0.1",
     "port":5432,
     "dialect": "postgres"
