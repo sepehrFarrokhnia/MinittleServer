@@ -3,7 +3,7 @@ const securityConfig = require('../../Config/security/Config.json');
 const encrypt = require('crypto-js/sha256');
 
 randomPassword = () => {
-    var st = "abcdefghijklmnopqrz123456789!@#$%^&*"
+    var st = "abcdefghijklmnopqrz123456789"
     var pass = ""
     for (let i = 0; i < 5; i++) {
         pass += st.charAt(Math.floor(Math.random() * st.length));
