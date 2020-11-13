@@ -1,41 +1,48 @@
 const model = require("../../Models");
 const securityConfig = require('../../Config/security/Config.json');
+const encrypt = require('crypto-js/sha256');
+
+randomPassword = () => {
+    var st = "abcdefghijklmnopqrz123456789!@#$%^&*"
+    var pass = ""
+    for (let i = 0; i < 5; i++) {
+        pass += st.charAt(Math.floor(Math.random() * st.length));
+    }
+    return pass;
+}
 
 module.exports = {
     signUp(req, res) {
-        const { username, password } = req.body;
-        console.log(req.body);
+
         model.Users
-            .findOne({
-                where: {
-                    username: username
-                }
-            }).then(user => {
-                if (user == null) {
-                    model.Users.create({
-                        username: username,
-                        password: password,
-                    }).then(resualt => {
-                        var changedName = "Mashty-" + resualt.id;
-                        model.Users.update({ name: changedName }, {
-                            where: {
-                                username: username
-                            }
-                        }).then(user1 => {
-                            res.status(200).send(changedName);
-                        })
+            .create({
+                username: "new"
+            }).then(reu => {
+                const prebuilUsername = "minittleUSers" + reu.id;
+                const prebuildPassword = randomPassword();
+                const prebuildName = 'users-' + reu.id;
+                model.Users
+                    .update({
+                        username: prebuilUsername,
+                        password: encrypt(prebuildPassword).toString(),
+                        name: prebuildName
+                    }, {
+                        where: {
+                            username: "new"
+                        }
+                    }).then(reu1 => {
+                        // everything went well
+                        res.status(200).json({ 0: 200, 1: prebuilUsername, 2: prebuildPassword });
+                    }).catch(err => {
+                        //couldn't update the user
+                        console.log(err);
+                        res.status(500).json({ 0: 500, 1: err });
                     })
-                        .catch(err => {
-                            console.error(err);
-                            res.status(400).send("couldn't create user")
-                        })
-                } else {
-                    res.status(400).send("user already exist");
-                }
             }).catch(err => {
                 console.log(err);
-                res.status(400).send("some error happend");
+                res.status(500).json({ 0: 500, 1: err });
             });
+
     }
 
 
