@@ -14,7 +14,10 @@ module.exports = {
                     res.status(404).json({ status: 404, error: "notFound" });
                 } else {
                     console.log(`playload : ${rsu}`)
-                    let token = jwt.sign({ id: rsu.id, name: rsu.name, username: rsu.username, Role: rsu.Role }, secrets.secrets.loginSecret, { algorithm: 'HS256' });
+                    let token = jwt.sign({
+                        id: rsu.id, name: rsu.name, username: rsu.username, Role: rsu.Role, friendList: rsu.friendList, friendRequests: rsu.friendRequests,
+                        wins: rsu.wins, loses: rsu.loses, level: rsu.level, levelProgress: rsu.levelProgress
+                    }, secrets.secrets.loginSecret, { algorithm: 'HS256' });
                     res.status(200).json({ status: 200, token: token });
                 }
             }).catch(err => {
@@ -30,7 +33,10 @@ module.exports = {
                 username: username
             }
         }).then(rsu => {
-            res.status(200).json({ status: 200, name: rsu.name, username: rsu.username, password: rsu.password });
+            res.status(200).json({
+                status: 200, id: rsu.id, name: rsu.name, username: rsu.username, Role: rsu.Role, friendList: rsu.friendList, friendRequests: rsu.friendRequests,
+                wins: rsu.wins, loses: rsu.loses, level: rsu.level, levelProgress: rsu.levelProgress
+            });
         }).catch(err => {
             console.error(err);
         })
