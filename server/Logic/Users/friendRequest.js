@@ -2,7 +2,7 @@ const { request } = require('express');
 
 const Users = require('../../Models/index').Users;
 
-const sendingRequest = (id, friendId) => {
+const sendingRequest = (res, id, friendId) => {
     Users
         .findOne({
             where: {
@@ -34,7 +34,7 @@ const sendingRequest = (id, friendId) => {
         });
 }
 
-const acceptingRequest = (id, friendId) => {
+const acceptingRequest = (res, id, friendId) => {
     Users
         .findOne({
             where: {
