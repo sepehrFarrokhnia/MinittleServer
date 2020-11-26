@@ -1,4 +1,3 @@
-var users = require('./users.json'); 
 
 const addUSer = (user) => {
     i = users.length - 1;

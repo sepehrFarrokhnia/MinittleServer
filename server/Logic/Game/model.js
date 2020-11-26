@@ -44,22 +44,16 @@ const reciveInformation = (array, gameId, userId, recInfo) => {
             if (array[i].userA.id == userId) {
                 array[i].userA.infR = recInfo;
                 var info = recInfo.split("-");
-                if (info[0])
+                if (info[0] == "map") {
+                    setMap(array, gameId, info[1], 9, 9);
+                }
 
             } else {
-
+                return "0";
             }
         }
     }
-    if (game == "0") {
-        return "0";
-    } else {
-        if (game.userA.id == user.id) {
-            array
-        } else {
-
-        }
-    }
+ 
 }
 
 const howManyGame = (array) => {
@@ -100,9 +94,9 @@ const setMap = (array, gameId, map, x, y) => {
         }
         return dMap;
     }
+}
 
-
-    module.exports = {
-        startAGame,
-        findAGame,
-    }
+module.exports = {
+    startAGame,
+    findAGame,
+}
