@@ -1,46 +1,41 @@
-var lobby = new Array();
-
 
 //FUNCTIONS TO WORK WITH
-const allUsers = ()  =>{
-    return lobby;
-}
-
-addingToLobby = (user) => {
-    let score = (user.rank * user.wins) / (user.loses + 1);
-    lobby.set({ userId: user.id, score: score });
-    sortTheNewItem();
-    return "adding to lobby";
+addingToLobby = (lobby, user) => {
+    let score = (user.level * user.wins) / (user.loses + 1);
+    lobby.push({ userId: user.id, score: score });
+    sortTheNewItem(lobby);
+    return "1";
 };
 
- const findingAMarch = (user) => {
+const findingAMarch = (lobby, user) => {
     var opi_s = 6;
     var opi = null;
-    lobby.forEach(u => {
-        if (opi_s >= Math.sign(u.score - user.score)) {
-            opi_s = Math.sign(u.score - user.score);
-            opi = u;
+    let score = (user.level * user.wins) / (user.loses + 1);
+    for (let i = 0; i < lobby.length; i++) {
+        if (opi_s >= Math.sign(lobby[i].score - score)) {
+            opi_s = Math.sign(lobby[i].score - score);
+            opi = lobby[i];
         }
-    });
+    }
 
     if (opi != null) {
-        addingToLobby(user);
-        return "adding to lobby";
+        addingToLobby(lobby, user);
+        return "0";
     } else {
         return opi;
     }
 
 };
 
-searchingTheLobby = (user) => {
+searchingTheLobby = (lobby, user) => {
     return lobby.indexOf(user);
 };
 
 howManyOnline = (user) => {
-    return lobby.length();
+    return lobby.length;
 };
 
-deletingFromLobby = (user) => {
+deletingFromLobby = (lobby, user) => {
     for (int = lobby.indexOf(user); i < lobby.length - 1; i++) {
         let a = lobby[i];
         lobby[i] = lobby[i + 1];
@@ -49,7 +44,7 @@ deletingFromLobby = (user) => {
     lobby.pop();
 };
 
-sortTheNewItem = () => {
+sortTheNewItem = (lobby) => {
     let j = lobby.length - 1;
     for (var i = lobby.length - 2; i >= 0; i--) {
         if (lobby[i].score > lobby[j].score) {
@@ -65,5 +60,5 @@ sortTheNewItem = () => {
 
 module.exports = {
     findingAMarch,
-    allUsers
+
 }
