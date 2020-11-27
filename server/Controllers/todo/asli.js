@@ -10,15 +10,13 @@ module.exports = {
                 ],
             }).then(rsu => {
                 var a = "";
-                var i = 0;
-                rsu.forEach(e => {
-                    if (i > 10) {
-                        break
+                for (var i = 0; i < 4; i++) {
+                    if(i==9){
+                        rsu[i].title + "@" + rsu[i];
+                    }else{
+                        a += rsu[i].title + "@" + rsu[i] + "-";
                     }
-                    i = i + 1;
-                    a += e.title + "@" + e.score + "-";
-                    console.log(a);
-                });
+                }
                 res.status(200).send(a);
             })
     },
