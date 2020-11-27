@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
   };
   qwe.init({
     title: DataTypes.STRING,
-    score: DataTypes.STRING
+    score: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'qwe',

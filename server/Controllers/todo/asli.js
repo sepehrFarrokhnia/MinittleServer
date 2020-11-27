@@ -1,6 +1,10 @@
 const { mode } = require("crypto-js");
 const model = require("../../Models");
 
+scoresaz = (a) =>{
+    
+}
+
 module.exports = {
     showAll(req, res) {
 
