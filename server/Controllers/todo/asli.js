@@ -17,7 +17,7 @@ module.exports = {
                         a += rsu[i].title + "@" + rsu[i].score + "-";
                     }
                 }
-                res.status(200).send(a);
+                res.status(200).send(rsu);
             })
     },
 
