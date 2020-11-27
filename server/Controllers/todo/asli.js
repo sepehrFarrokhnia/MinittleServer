@@ -3,14 +3,7 @@ const model = require("../../Models");
 
 module.exports = {
     showAll(req, res) {
-        mode.qwe
-            .destroy({
-                where: {
-                    title: null,
-                    score: null
-                },
-                
-            })
+
         model.qwe
             .findAll({
                 attributes: ['title', 'score'],
@@ -19,7 +12,11 @@ module.exports = {
                 ],
             }).then(rsu => {
                 var a = "";
-                for (var i = 0; i < 4; i++) {
+                var j =0 ;
+                for (var i = 0; i < 4+j; i++) {
+                    if(rsu[i].title == null){
+                        j++;
+                    }
                     if (i == 3) {
                         a += rsu[i].title + "@" + rsu[i].score;
                     } else {
