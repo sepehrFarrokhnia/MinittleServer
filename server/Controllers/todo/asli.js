@@ -33,7 +33,7 @@ module.exports = {
     },
 
     addd(req, res) {
-        const { k, b } = req.body;
+        const { k, b } = req.query;
         console.log(`k = ${k},b = ${b}`);
         console.log(`request b = ${req.b}`);
         console.log(`request body = ${req.bbody}`);
