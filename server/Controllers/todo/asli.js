@@ -35,7 +35,8 @@ module.exports = {
     addd(req, res) {
         const { k, b } = req.body;
         console.log(`k = ${k},b = ${b}`);
-        console.log(`request b = ${req.body.b}`)
+        console.log(`request b = ${req.b}`);
+        console.log(`request body = ${req.bbody}`);
         model.qwe
             .create({
                 title: k,
