@@ -18,7 +18,7 @@ module.exports = {
                         j++;
                         continue;
                     }
-                    if (i == 3) {
+                    if (i == 3+j) {
                         a += rsu[i].title + "@" + rsu[i].score;
                     } else {
                         a += rsu[i].title + "@" + rsu[i].score + "-";
