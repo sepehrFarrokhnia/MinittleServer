@@ -14,7 +14,7 @@ module.exports = {
                     if(i==9){
                         rsu[i].title + "@" + rsu[i];
                     }else{
-                        a += rsu[i].title + "@" + rsu[i] + "-";
+                        a += rsu[i].title + "@" + rsu[i].score + "-";
                     }
                 }
                 res.status(200).send(a);
