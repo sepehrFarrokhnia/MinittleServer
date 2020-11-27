@@ -16,6 +16,7 @@ module.exports = {
                 for (var i = 0; i < 4+j; i++) {
                     if(rsu[i].title == null){
                         j++;
+                        continue;
                     }
                     if (i == 3) {
                         a += rsu[i].title + "@" + rsu[i].score;
