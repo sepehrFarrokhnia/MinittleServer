@@ -38,7 +38,7 @@ module.exports = {
         model.qwe
             .create({
                 title: k,
-                score: b
+                score: parseInt(b)
             }).then(rsu => {
                 res.json({
                     status: 200
