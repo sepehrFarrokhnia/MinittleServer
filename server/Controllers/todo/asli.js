@@ -9,9 +9,7 @@ module.exports = {
                 ],
             }).then(rsu => {
                 res.json({
-                    status: 200,
                     all: rsu.reverse()
-                
                 });
             })
     },
