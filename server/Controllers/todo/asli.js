@@ -6,7 +6,7 @@ module.exports = {
             .findAll({
                 attributes: ['title', 'score'],
                 order: [
-                    ['score'],
+                    ['score', 'DESC'],
                 ],
             }).then(rsu => {
                 res.json({
