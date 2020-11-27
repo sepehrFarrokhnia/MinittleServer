@@ -9,7 +9,7 @@ module.exports = {
                 ],
             }).then(rsu => {
                 res.json({
-                    all: rsu.all.reverse()
+                    all: rsu
                 });
             })
     },
