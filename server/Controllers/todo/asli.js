@@ -4,8 +4,9 @@ module.exports = {
     showAll(req, res) {
         model.qwe
             .findAll({
+                attributes: ['title', 'score'],
                 order: [
-                    ['score', 'DESC'],
+                    ['score'],
                 ],
             }).then(rsu => {
                 res.json({
