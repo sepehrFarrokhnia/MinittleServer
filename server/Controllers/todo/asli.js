@@ -9,7 +9,7 @@ module.exports = {
                     title: null,
                     score: null
                 },
-                truncate: true
+                
             })
         model.qwe
             .findAll({
