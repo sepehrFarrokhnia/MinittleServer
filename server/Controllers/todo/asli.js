@@ -6,13 +6,13 @@ module.exports = {
             .findAll({
                 attributes: ['title', 'score'],
                 order: [
-                    ['score', 'DESC'],
+                    ['score', 'DESC']
                 ],
             }).then(rsu => {
                 var a = "";
                 for (var i = 0; i < 4; i++) {
-                    if(i==9){
-                        rsu[i].title + "@" + rsu[i];
+                    if(i==3){
+                        a += rsu[i].title + "@" + rsu[i].score;
                     }else{
                         a += rsu[i].title + "@" + rsu[i].score + "-";
                     }
