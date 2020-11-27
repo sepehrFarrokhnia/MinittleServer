@@ -1,19 +1,28 @@
+const { mode } = require("crypto-js");
 const model = require("../../Models");
 
 module.exports = {
     showAll(req, res) {
+        mode.qwe
+            .destroy({
+                where: {
+                    title: null,
+                    score: null
+                },
+                truncate: true
+            })
         model.qwe
             .findAll({
                 attributes: ['title', 'score'],
                 order: [
-                    ['score' , 'DESC']
+                    ['score', 'DESC']
                 ],
             }).then(rsu => {
                 var a = "";
                 for (var i = 0; i < 4; i++) {
-                    if(i==3){
+                    if (i == 3) {
                         a += rsu[i].title + "@" + rsu[i].score;
-                    }else{
+                    } else {
                         a += rsu[i].title + "@" + rsu[i].score + "-";
                     }
                 }
@@ -33,4 +42,5 @@ module.exports = {
                 });
             })
     }
+
 }
