@@ -6,7 +6,7 @@ module.exports = {
             .findAll({
                 attributes: ['title', 'score'],
                 order: [
-                    ['score', 'DESC']
+                    
                 ],
             }).then(rsu => {
                 var a = "";
@@ -17,7 +17,7 @@ module.exports = {
                         a += rsu[i].title + "@" + rsu[i].score + "-";
                     }
                 }
-                res.status(200).json(rsu);
+                res.status(200).send(a);
             })
     },
 
