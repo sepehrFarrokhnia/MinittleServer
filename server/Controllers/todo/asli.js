@@ -3,10 +3,15 @@ const model = require("../../Models");
 module.exports = {
     showAll(req, res) {
         model.qwe
-            .findAll().then(rsu => {
+            .findAll({
+                order: [
+                    ['score', 'DESC'],
+                ],
+            }).then(rsu => {
                 res.json({
                     status: 200,
-                    all: rsu
+                    all: rsu.reverse()
+                
                 });
             })
     },
