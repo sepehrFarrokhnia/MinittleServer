@@ -9,7 +9,7 @@ module.exports = {
                 ],
             }).then(rsu => {
                 res.json({
-                    all: rsu
+                    alll: rsu
                 });
             })
     },
