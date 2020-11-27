@@ -13,10 +13,11 @@ module.exports = {
                 var i = 0;
                 rsu.forEach(e => {
                     if (i > 10) {
-                        break;
+                        break
                     }
-                    i++;
-                    a += e.title + "/" + e.score + "-";
+                    i = i + 1;
+                    a += e.title + "@" + e.score + "-";
+                    console.log(a);
                 });
                 res.status(200).send(a);
             })
