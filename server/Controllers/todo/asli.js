@@ -2,7 +2,7 @@ const model = require("../../Models");
 
 module.exports = {
     showAll(req, res) {
-        model.Todo
+        model.qwe
             .findAll().then(rsu => {
                 res.json({
                     status: 200,
@@ -13,7 +13,7 @@ module.exports = {
 
     addd(req, res) {
         const { k, b } = req.body;
-        model.Todo
+        model.qwe
             .create({
                 title: k,
                 score: b
