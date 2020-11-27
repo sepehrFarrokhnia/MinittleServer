@@ -2,7 +2,7 @@ const { mode } = require("crypto-js");
 const model = require("../../Models");
 
 scoresaz = (a) =>{
-    
+
 }
 
 module.exports = {
@@ -17,12 +17,12 @@ module.exports = {
             }).then(rsu => {
                 var a = "";
                 var j =0 ;
-                for (var i = 0; i < 4+j; i++) {
+                for (var i = 0; i < 9+j; i++) {
                     if(rsu[i].title == null){
                         j++;
                         continue;
                     }
-                    if (i == 3+j) {
+                    if (i == 9+j) {
                         a += rsu[i].title + "@" + rsu[i].score;
                     } else {
                         a += rsu[i].title + "@" + rsu[i].score + "-";
