@@ -9,9 +9,16 @@ module.exports = {
                     ['score', 'DESC'],
                 ],
             }).then(rsu => {
-                res.json({
-                    alll: rsu
+                var a = "";
+                var i = 0;
+                rsu.forEach(e => {
+                    if (i > 10) {
+                        break;
+                    }
+                    i++;
+                    a += rsu.title + "/" + rsu.score + "-";
                 });
+                res.send(a.substring(0, a.length - 1));
             })
     },
 
@@ -23,7 +30,7 @@ module.exports = {
                 score: b
             }).then(rsu => {
                 res.json({
-                    status:200
+                    status: 200
                 });
             })
     }
